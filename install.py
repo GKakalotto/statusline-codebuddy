@@ -12,7 +12,7 @@ import shutil
 SETTINGS_OVERRIDE = {
     "statusLine": {
         "type": "command",
-        "command": "python3 statusline.py",
+        "command": "python3 ~/.codebuddy/statusline.py",
         "padding": 0
     }
 }
