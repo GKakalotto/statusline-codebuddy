@@ -110,7 +110,7 @@ def main():
     if used_pct is not None:
         pct_val = float(used_pct)
         current_usage = cw.get("current_usage") or {}
-        total_input = current_usage.get("input_tokens", 0)
+        total_input = current_usage.get("cache_creation_input_tokens", 0) + current_usage.get("cache_read_input_tokens", 0)
         token_info = f"{fmt_tokens(total_input)}/{fmt_tokens(window_size)}"
 
         parts.append(f"{progress_bar(pct_val)} {color(f'{pct_val:.0f}%', BOLD)} {color(token_info, DIM)}")
@@ -132,7 +132,7 @@ def main():
     if not line.strip():
         line = "  Code Buddy"
 
-    print(f"  {line}\n" + color(" ", DIM), flush=True)
+    print(f"{line}\n" + color(" ", DIM), flush=True)
 
 
 if __name__ == "__main__":
